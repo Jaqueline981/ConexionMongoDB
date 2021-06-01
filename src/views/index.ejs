@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de IOT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body background="black">
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">IOT</a>
+    </nav>
+    <pre></pre>
+    <div>
+        <h1>
+            Proyecto: 
+            <small class="text-muted">PREVENTION SERVICE</small>
+          </h1> 
+    </div>
+    
+    <div class="container-dark-center" >
+        <div class="col-md-5">
+            <div class="card text-center">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="temperatura" placeholder="Temperatura °C" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="presencia" placeholder="Presencia" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fecha" placeholder="Fecha" class="form-control">
+                        </div>
+                        <button class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </br>
+</br>
+        <div class="col-md-5">
+            <table class="table table-bordered table-striped table-center">
+                <thead class="thead-dark thead-center">
+                    <tr>
+                        <th>No.</th>
+                        <th>Temperatura</th>
+                        <th>Presencia</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0 ; i < valores.length; i++){ %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= valores[i].temperatura %></td>
+                            <td><%= valores[i].presencia %></td>
+                            <td><%= valores[i].fecha %></td>
+                        </tr>
+                                  
+
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
