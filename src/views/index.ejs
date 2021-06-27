@@ -4,46 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma de IOT</title>
+    <script  src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body background="black">
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">IOT</a>
-    </nav>
+
+<body style="background-color: rgb(187, 225, 243);">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+            <a class="navbar-brand" href="/">IOT</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/">Contactanos</a>
+                </li>
+            </ul>
+            
+        </nav>
     <pre></pre>
-    <div>
-        <h1>
-            Proyecto: 
-            <small class="text-muted">PREVENTION SERVICE</small>
-          </h1> 
-    </div>
+   
     
-    <div class="container-dark-center" >
-        <div class="col-md-5">
-            <div class="card text-center">
-                <div class="card-body">
-                    <form action="/add" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="temperatura" placeholder="Temperatura °C" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="presencia" placeholder="Presencia" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="date" name="fecha" placeholder="Fecha" class="form-control">
-                        </div>
-                        <button class="btn btn-primary">Registrar</button>
-                    </form>
+    <center>
+       <div background="black"> 
+           <h1>
+             P R O Y E C T O &nbsp; I O T <p></p> "P R E V E N T I O N &nbsp; S E R V I C E"
+           </h1>
+           
+        </div> 
+    </center>
+    
+    <center>
+        </br>
+        <div class="container-dark-center" >
+            <div class="col-md-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="usuario" placeholder="Usuario Encargado" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="temperatura" placeholder="Temperatura °C" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="presencia" placeholder="Presencia" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" name="fecha" placeholder="Fecha" class="form-control">
+                            </div>
+                            <button class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </br>
     </br>
-</br>
-        <div class="col-md-5">
-            <table class="table table-bordered table-striped table-center">
+    </center>
+
+<center>
+    <h2>Monitoreo sobre el Sensor de Temperatura</h2> <br>
+    <div style="height: 300px; width: 200px;">
+        <nav>
+            <div class="card">
+                <canvas id="myChart" width="100" height="100"></canvas>
+            </div>
+        </nav>
+    </div>  
+</center>
+
+<center>
+    <h2>Monitoreo sobre el Sensor de Presencia</h2> <br>
+    <div style="height: 300px; width: 200px;">
+        <nav>
+            <div class="card">
+                <canvas id="myChart2" width="100" height="100"></canvas>
+            </div>
+        </nav>
+    </div>  
+</center>
+    
+
+<center>
+    <h1>
+        "REGISTROS &nbsp; DEL &nbsp; FORMULARIO"
+    </h1>
+</center>
+    <br>
+    <br>
+    <center>
+        <div class="col-md-9">
+            <table class="table table-bordered table-striped table-center" >
                 <thead class="thead-dark thead-center">
                     <tr>
                         <th>No.</th>
+                        <th>Usuario Encargado</th>
                         <th>Temperatura</th>
                         <th>Presencia</th>
                         <th>Fecha</th>
@@ -52,17 +109,81 @@
                 <tbody>
                     <% for(var i = 0 ; i < valores.length; i++){ %>
                         <tr>
-                            <td><%= i+1 %></td>
+                            <td id="envio"><%= i+1 %></td>
+                            <td><%= valores[i].usuario %></td>
                             <td><%= valores[i].temperatura %></td>
                             <td><%= valores[i].presencia %></td>
                             <td><%= valores[i].fecha %></td>
                         </tr>
-                                  
-
                     <% } %>
                 </tbody>
             </table>
-        </div>
+        </div
+    </center>
     </div>
+    <h1>
+        "Tu &nbsp; SALUD &nbsp; es &nbsp; lo &nbsp; mas &nbsp; importantes, <p></p> hay &nbsp; que  &nbsp; tomar &nbsp; precauciones &nbsp; para  &nbsp; seguir <p></p>con &nbsp; nuestra &nbsp; VIDA &nbsp; DIARIA"
+    </h1>
+
+    <center>
+        <div class="tow align-items-center">
+            <div class="col" style="padding: 20px;">
+                <img src="https://folchispanoamericano.ch/wp-content/uploads/2020/06/coronavirus-5107832_1280.png" height="250" width="250" class="img-fluit">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <img src="https://i.pinimg.com/originals/44/55/3b/44553bc046d8127b6a0b522a08823096.png" height="250" width="250" class="img-fluit">
+            </div>
+        </div>    
+    </center>
+
+    <p class="text-center text-muted">
+        <h5>
+           ITSRLL Internet de las Cosas 2021 ING INFORMATICA 
+        </h5>
+    </p>
+
 </body>
+<script>
+    <% var datos = valores.length-1 %>
+    var t = <%= valores[datos].temperatura %>;
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart= new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels:["TEMPERATURA"],
+            datasets:[{
+                label:'NO. DATOS ',
+                data:[t],
+                backgroundColor:[
+                    'rgb(255, 160, 122)'
+                ]
+            }]
+        }
+
+    });
+    </script>
+
+<script>
+
+    <% var datos = valores.length-1 %>
+    var p = <%= valores[datos].presencia %>;
+
+    var ctx = document.getElementById("myChart2").getContext("2d");
+    var myChart= new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels:["PRESENCIA"],
+            datasets:[{
+                label:'NO. DATOS',
+                data:[p],
+                backgroundColor:[
+                    'rgb(250, 128, 114)',
+
+                ]
+            }]
+        }
+
+    });
+    </script>
+
 </html>
